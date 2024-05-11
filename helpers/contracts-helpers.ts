@@ -20,6 +20,7 @@ import {
   iAvalancheParamsPerNetwork,
   eAvalancheNetwork,
 } from './types';
+import UzhethConfig from '../markets/uzheth';
 import { MintableERC20 } from '../types/MintableERC20';
 import { Artifact } from 'hardhat/types';
 import { Artifact as BuidlerArtifact } from '@nomiclabs/buidler/types';
@@ -145,7 +146,7 @@ export const linkBytecode = (artifact: BuidlerArtifact | Artifact, libraries: an
 };
 
 export const getParamPerNetwork = <T>(param: iParamsPerNetwork<T>, network: eNetwork) => {
-  const { main, ropsten, kovan, coverage, buidlerevm, tenderly, goerli } =
+  const { main, ropsten, kovan, coverage, buidlerevm, tenderly, goerli, uzheth } =
     param as iEthereumParamsPerNetwork<T>;
   const { matic, mumbai } = param as iPolygonParamsPerNetwork<T>;
   const { xdai } = param as iXDaiParamsPerNetwork<T>;
@@ -181,6 +182,8 @@ export const getParamPerNetwork = <T>(param: iParamsPerNetwork<T>, network: eNet
       return fuji;
     case eEthereumNetwork.goerli:
       return goerli;
+    case eEthereumNetwork.uzheth:
+      return uzheth;
   }
 };
 
@@ -195,7 +198,7 @@ export const getOptionalParamAddressPerNetwork = (
 };
 
 export const getParamPerPool = <T>(
-  { proto, amm, matic, avalanche }: iParamsPerPool<T>,
+  { proto, amm, matic, avalanche, uzheth }: iParamsPerPool<T>,
   pool: AavePools
 ) => {
   switch (pool) {
@@ -207,6 +210,8 @@ export const getParamPerPool = <T>(
       return matic;
     case AavePools.avalanche:
       return avalanche;
+    case AavePools.uzheth:
+      return uzheth;
     default:
       return proto;
   }

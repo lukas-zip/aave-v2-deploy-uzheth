@@ -15,7 +15,8 @@
 
 # Aave Protocol v2
 
-This repository contains the smart contracts source code and markets configuration for Aave Protocol V2. The repository uses Docker Compose and Hardhat as development enviroment for compilation, testing and deployment tasks.
+This repository contains the smart contracts source code and markets configuration for the deployment of Aave Protocol V2 to the custom blockchain UZHETH.  The repository uses Docker Compose and Hardhat as development enviroment for compilation, testing and deployment tasks.
+The repository is forked and adapted based on the open-source Aave Protocol v2: https://github.com/aave/protocol-v2.git
 
 ## What is Aave?
 
@@ -23,81 +24,47 @@ Aave is a decentralized non-custodial liquidity markets protocol where users can
 
 ## Documentation
 
-The documentation of Aave V2 is in the following [Aave V2 documentation](https://docs.aave.com/developers/v/2.0/) link. At the documentation you can learn more about the protocol, see the contract interfaces, integration guides and audits.
-
-For getting the latest contracts addresses, please check the [Deployed contracts](https://docs.aave.com/developers/v/2.0/deployed-contracts/deployed-contracts) page at the documentation to stay up to date.
+The official documentation of Aave V2 is in the following [Aave V2 documentation](https://docs.aave.com/developers/v/2.0/) link. At the documentation you can learn more about the protocol, see the contract interfaces, integration guides and audits.
 
 A more detailed and technical description of the protocol can be found in this repository, [here](./aave-v2-whitepaper.pdf)
 
-## Audits
 
-- MixBytes (16/09/2020 - 03/12/2020): [report](./audits/Mixbytes-aave-v2-03-12-2020.pdf)
-- PeckShield (29/09/2020 - 03/12/2020) : [report](./audits/Peckshield-aave-v2-03-12-2020-EN.pdf) (Also available in Chinese in the same folder)
-- CertiK (28/09/2020 - 02/12/2020): [report](./audits/Certik-aave-v2-03-12-2020.pdf)
-- Consensys Diligence (09/09/2020 - 09/10/2020): [report](https://consensys.net/diligence/audits/2020/09/aave-protocol-v2/)
-- Certora, formal verification (02/08/2020 - 29/10/2020): [report](./audits/Certora-FV-aave-v2-03-12-2020.pdf)
-- SigmaPrime (January 2021): [report](./audits/SigmaPrime-aave-v2-01-2021.pdf)
-
-## Connect with the community
-
-You can join at the [Discord](http://aave.com/discord) channel or at the [Governance Forum](https://governance.aave.com/) for asking questions about the protocol or talk about Aave with other peers.
-
-## Getting Started
-
-You can install `@aave/protocol-v2` as an NPM package in your Hardhat, Buidler or Truffle project to import the contracts and interfaces:
-
-`npm install @aave/protocol-v2`
-
-Import at Solidity files:
-
-```
-import {ILendingPool} from "@aave/protocol-v2/contracts/interfaces/ILendingPool.sol";
-
-contract Misc {
-
-  function deposit(address pool, address token, address user, uint256 amount) public {
-    ILendingPool(pool).deposit(token, amount, user, 0);
-    {...}
-  }
-}
-```
-
-The JSON artifacts with the ABI and Bytecode are also included into the bundled NPM package at `artifacts/` directory.
-
-Import JSON file via Node JS `require`:
-
-```
-const LendingPoolV2Artifact = require('@aave/protocol-v2/artifacts/contracts/protocol/lendingpool/LendingPool.sol/LendingPool.json');
-
-// Log the ABI into console
-console.log(LendingPoolV2Artifact.abi)
-```
-
-## Setup
+## How to deploy Aave V2 in UZHETH network
 
 The repository uses Docker Compose to manage sensitive keys and load the configuration. Prior any action like test or deploy, you must run `docker-compose up` to start the `contracts-env` container, and then connect to the container console via `docker-compose exec contracts-env bash`.
 
 Follow the next steps to setup the repository:
-
-- Install `docker` and `docker-compose`
-- Create an enviroment file named `.env` and fill the next enviroment variables
-
+1. Install docker and docker-compose
+2. In order to use hardhat, make sure npm is installed on your device
+```bash
+npm install
 ```
-# Mnemonic, only first address will be used
+3. Create an enviroment file named `.env` and fill the enviroment variables MNEMONIC and EMERGENCY_ACCOUNT.
+```
+# (Required) Mnemonic, only first address will be used
 MNEMONIC=""
+EMERGENCY_ACCOUNT=""
 
-# Add Alchemy or Infura provider keys, alchemy takes preference at the config level
+# (Optional) Add Alchemy or Infura provider keys, alchemy takes preference at the config level
 ALCHEMY_KEY=""
 INFURA_KEY=""
 
 
-# Optional Etherscan key, for automatize the verification of the contracts at Etherscan
+# (Optional) Etherscan key, for automatize the verification of the contracts at Etherscan
 ETHERSCAN_KEY=""
 
-# Optional, if you plan to use Tenderly scripts
+# (Optional) if you plan to use Tenderly scripts
 TENDERLY_PROJECT=""
 TENDERLY_USERNAME=""
+```
+4. Run docker-compose:
+```bash
+docker-compose up
+```
 
+5. In a second terminal connect to the container console via:
+```bash
+docker-compose exec contracts-env bash.
 ```
 
 ## Markets configuration
@@ -105,6 +72,8 @@ TENDERLY_USERNAME=""
 The configurations related with the Aave Markets are located at `markets` directory. You can follow the `IAaveConfiguration` interface to create new Markets configuration or extend the current Aave configuration.
 
 Each market should have his own Market configuration file, and their own set of deployment tasks, using the Aave market config and tasks as a reference.
+
+For the UZHETH network see the configuration folder /markets/uzheth.
 
 ## Test
 
@@ -125,8 +94,8 @@ npm run test
 
 For deploying Aave Protocol V2, you can use the available scripts located at `package.json`. For a complete list, run `npm run` to see all the tasks.
 
-### Kovan deployment
 
+### UZHETH deployment
 ```
 # In one terminal
 docker-compose up
@@ -135,73 +104,40 @@ docker-compose up
 docker-compose exec contracts-env bash
 
 # A new Bash terminal is prompted, connected to the container
-npm run aave:kovan:full:migration
+npm run uzheth:full:migration
 ```
 
-### Mainnet fork deployment
+A comprehensive list of all deployed contracts is available in the `deployed-contracts.json` file, located in the root directory.
 
-You can deploy Aave Protocol v2 in a forked Mainnet chain using Hardhat built-in fork feature:
-
+## Create ERC20 Tokens
+The example code below demonstrates how to create an ERC20 token using Remix. First, compile and deploy the contract. Once deployed, you can add the tokens to your MetaMask wallet by using the contract ID.
 ```
-docker-compose run contracts-env npm run aave:fork:main
-```
-
-### Deploy Aave into a Mainnet Fork via console
-
-You can deploy Aave into the Hardhat console in fork mode, to interact with the protocol inside the fork or for testing purposes.
-
-Run the console in Mainnet fork mode:
-
-```
-docker-compose run contracts-env npm run console:fork
-```
-
-At the Hardhat console, interact with the Aave protocol in Mainnet fork mode:
-
-```
-// Deploy the Aave protocol in fork mode
-await run('aave:mainnet')
-
-// Or your custom Hardhat task
-await run('your-custom-task');
-
-// After you initialize the HRE via 'set-DRE' task, you can import any TS/JS file
-run('set-DRE');
-
-// Import contract getters to retrieve an Ethers.js Contract instance
-const contractGetters = require('./helpers/contracts-getters'); // Import a TS/JS file
-
-// Lending pool instance
-const lendingPool = await contractGetters.getLendingPool("LendingPool address from 'aave:mainnet' task");
-
-// You can impersonate any Ethereum address
-await network.provider.request({ method: "hardhat_impersonateAccount",  params: ["0xb1adceddb2941033a090dd166a462fe1c2029484"]});
-
-const signer = await ethers.provider.getSigner("0xb1adceddb2941033a090dd166a462fe1c2029484")
-
-// ERC20 token DAI Mainnet instance
-const DAI = await contractGetters.getIErc20Detailed("0x6B175474E89094C44Da98b954EedeAC495271d0F");
-
-// Approve 100 DAI to LendingPool address
-await DAI.connect(signer).approve(lendingPool.address, ethers.utils.parseUnits('100'));
-
-// Deposit 100 DAI
-await lendingPool.connect(signer).deposit(DAI.address, ethers.utils.parseUnits('100'), await signer.getAddress(), '0');
-
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+import "@openzeppelin/contracts@4.9.3/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts@4.9.3/access/Ownable.sol";
+contract UZHETH is ERC20, Ownable {
+    constructor() ERC20("UZHETH", "UZHETH") {
+        _mint(msg.sender, 60000 * 10 ** decimals());
+    }
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+} }
 ```
 
-## Interact with Aave in Mainnet via console
+## Interact with Aave in UZHETH via console
 
-You can interact with Aave at Mainnet network using the Hardhat console, in the scenario where the frontend is down or you want to interact directly. You can check the deployed addresses at https://docs.aave.com/developers/deployed-contracts.
+You can interact with Aave using the Hardhat console.
 
-Run the Hardhat console pointing to the Mainnet network:
+Run the Hardhat console pointing to the UZHETH network:
 
-```
-docker-compose run contracts-env npx hardhat --network main console
+```bash
+docker-compose run contracts-env npx hardhat --network uzheth console
 ```
 
 At the Hardhat console, you can interact with the protocol:
 
+### Deposit ERC20 tokens on AAVE (get ATokens back)
 ```
 // Load the HRE into helpers to access signers
 run("set-DRE")
@@ -213,14 +149,45 @@ const contractGetters = require('./helpers/contracts-getters');
 const signer = await contractGetters.getFirstSigner();
 
 // Lending pool instance
-const lendingPool = await contractGetters.getLendingPool("0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9");
+const lendingPool = await contractGetters.getLendingPool("xxx");
 
-// ERC20 token DAI Mainnet instance
-const DAI = await contractGetters.getIErc20Detailed("0x6B175474E89094C44Da98b954EedeAC495271d0F");
+// ERC20 token instance
+const TOK = await contractGetters.getIErc20Detailed("0x171397e9963ba8e0aece162450d9ef58b854c540");
 
-// Approve 100 DAI to LendingPool address
-await DAI.connect(signer).approve(lendingPool.address, ethers.utils.parseUnits('100'));
+// Approve 100 ERC20 token to LendingPool address
+await TOK.connect(signer).approve(lendingPool.address, ethers.utils.parseUnits('100', 18));
 
-// Deposit 100 DAI
-await lendingPool.connect(signer).deposit(DAI.address, ethers.utils.parseUnits('100'), await signer.getAddress(), '0');
+// Deposit 100 ERC20 token
+const tx = await lendingPool.connect(signer).deposit(TOK.address, ethers.utils.parseUnits('100', 18), await signer.getAddress(), '0');
+await tx.wait();
 ```
+
+### Withdraw ERC20 tokens from AAVE (burn ATokens)
+```
+// Load the HRE into helpers to access signers
+run("set-DRE")
+
+// Import getters to instance any Aave contract
+const contractGetters = require('./helpers/contracts-getters');
+
+// Load the first signer
+const signer = await contractGetters.getFirstSigner();
+
+// Lending pool instance
+const lendingPool = await contractGetters.getLendingPool("0x0b93743a5A523faCB3ca3E92F027845F34e02feA");
+
+// ERC20 token instance
+const TOK = await contractGetters.getIErc20Detailed("0x6ae1ac2f223e49bff649d5d5aa4a13270c2a0a71");
+
+// Set amount to withdraw from LendingPool
+await TOK.connect(signer).approve(lendingPool.address, ethers.utils.parseUnits('100', 18));
+
+// Withdraw 100 ERC20 token
+const tx2 = await lendingPool.connect(signer).withdraw(TOK.address, amountToWithdraw, signer.getAddress());
+await tx2.wait();
+```
+
+## Interact with Aave in UZHETH via contracts
+
+
+

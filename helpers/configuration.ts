@@ -11,6 +11,7 @@ import AaveConfig from '../markets/aave';
 import MaticConfig from '../markets/matic';
 import AvalancheConfig from '../markets/avalanche';
 import AmmConfig from '../markets/amm';
+import UzhethConfig from '../markets/uzheth';
 
 import { CommonsConfig } from '../markets/aave/commons';
 import { DRE, filterMapBy } from './misc-utils';
@@ -23,7 +24,8 @@ export enum ConfigNames {
   Aave = 'Aave',
   Matic = 'Matic',
   Amm = 'Amm',
-  Avalanche = 'Avalanche'
+  Avalanche = 'Avalanche',
+  Uzheth = 'uzheth',
 }
 
 export const loadPoolConfig = (configName: ConfigNames): PoolConfiguration => {
@@ -34,10 +36,12 @@ export const loadPoolConfig = (configName: ConfigNames): PoolConfiguration => {
       return MaticConfig;
     case ConfigNames.Amm:
       return AmmConfig;
-      case ConfigNames.Avalanche:
-        return AvalancheConfig;
+    case ConfigNames.Avalanche:
+      return AvalancheConfig;
     case ConfigNames.Commons:
       return CommonsConfig;
+    case ConfigNames.Uzheth:
+      return UzhethConfig;
     default:
       throw new Error(
         `Unsupported pool configuration: ${configName} is not one of the supported configs ${Object.values(
@@ -65,7 +69,10 @@ export const getReservesConfigByPool = (pool: AavePools): iMultiPoolsAssets<IRes
       },
       [AavePools.avalanche]: {
         ...AvalancheConfig.ReservesConfig,
-      }
+      },
+      [AavePools.uzheth]: {
+        ...UzhethConfig.ReservesConfig,
+      },
     },
     pool
   );
@@ -146,6 +153,10 @@ export const getLendingRateOracles = (poolConfig: IBaseConfiguration) => {
 export const getQuoteCurrency = async (config: IBaseConfiguration) => {
   switch (config.OracleQuoteCurrency) {
     case 'ETH':
+    case 'UZHETH':
+      return getWethAddress(config);
+    case 'TOK20':
+      return getWethAddress(config);
     case 'WETH':
       return getWethAddress(config);
     case 'USD':

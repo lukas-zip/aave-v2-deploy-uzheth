@@ -16,6 +16,7 @@ export enum eEthereumNetwork {
 
   tenderly = 'tenderly',
   goerli = 'goerli',
+  uzheth = 'uzheth',
 }
 
 export enum ePolygonNetwork {
@@ -48,6 +49,7 @@ export enum AavePools {
   matic = 'matic',
   amm = 'amm',
   avalanche = 'avalanche',
+  uzheth = 'uzheth',
 }
 
 export enum eContractid {
@@ -257,6 +259,8 @@ export interface iAssetBase<T> {
   STAKE: T;
   xSUSHI: T;
   WAVAX: T;
+  UZHETH: T;
+  TOK20: T;
 }
 
 export type iAssetsWithoutETH<T> = Omit<iAssetBase<T>, 'ETH'>;
@@ -286,6 +290,8 @@ export type iAavePoolAssets<T> = Pick<
   | 'REN'
   | 'ENJ'
   | 'xSUSHI'
+  | 'UZHETH'
+  | 'TOK20'
 >;
 
 export type iLpPoolAssets<T> = Pick<
@@ -376,6 +382,8 @@ export enum TokenContractId {
   STAKE = 'STAKE',
   xSUSHI = 'xSUSHI',
   WAVAX = 'WAVAX',
+  UZHETH = 'UZHETH',
+  TOK20 = 'TOK20',
 }
 
 export interface IReserveParams extends IReserveBorrowParams, IReserveCollateralParams {
@@ -435,6 +443,7 @@ export interface iEthereumParamsPerNetwork<T> {
   [eEthereumNetwork.hardhat]: T;
   [eEthereumNetwork.tenderly]: T;
   [eEthereumNetwork.goerli]: T;
+  [eEthereumNetwork.uzheth]: T;
 }
 
 export interface iPolygonParamsPerNetwork<T> {
@@ -456,6 +465,7 @@ export interface iParamsPerPool<T> {
   [AavePools.matic]: T;
   [AavePools.amm]: T;
   [AavePools.avalanche]: T;
+  [AavePools.uzheth]: T;
 }
 
 export interface iBasicDistributionParams {

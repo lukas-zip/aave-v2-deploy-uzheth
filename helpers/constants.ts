@@ -30,8 +30,11 @@ export const MOCK_USD_PRICE_IN_WEI = '5848466240000000';
 export const USD_ADDRESS = '0x10F7Fc1F91Ba351f9C629c5947AD69bD03C05b96';
 export const AAVE_REFERRAL = '0';
 
+export const UZHETH = oneEther.multipliedBy('0.00369068412860').toFixed();
+
 export const MOCK_CHAINLINK_AGGREGATORS_PRICES = {
   // Update to USD-based price feeds
+  UZHETH: oneEther.multipliedBy('0.00369068412860').toFixed(),
   AAVE: oneEther.multipliedBy('0.003620948469').toFixed(),
   BAT: oneEther.multipliedBy('0.00137893825230').toFixed(),
   BUSD: oneEther.multipliedBy('0.00736484').toFixed(),
@@ -87,6 +90,7 @@ export const chainlinkAggregatorProxy = {
   arbitrum: '0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612',
   rinkeby: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e',
   goerli: '0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e',
+  uzheth: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419',
 };
 
 export const chainlinkEthUsdAggregatorProxy = {
@@ -101,4 +105,5 @@ export const chainlinkEthUsdAggregatorProxy = {
   arbitrum: '0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612',
   rinkeby: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e',
   goerli: '0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e',
+  uzheth: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419',
 };

@@ -1,3 +1,6 @@
+/node_modules
+/.idea
+
 .env
 #Buidler files
 cache
@@ -8,8 +11,6 @@ build/
 .vscode
 .idea
 /types
-
-deployed-contracts.json
 
 coverage
 .coverage_artifacts

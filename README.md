@@ -188,7 +188,7 @@ await tx2.wait();
 ```
 
 ## Interact with Aave in UZHETH via scripts
-Instead of using the Hardhat console, you can use our custom scripts for various use cases. Each script is designed to streamline interactions with the lending pool, making it easier and more efficient to manage your assets.
+Instead of using the Hardhat console, you can use our custom scripts for various use cases. Each script is designed to streamline interactions with the lending pool, making it easier and more efficient to manage assets.
 The scripts are located in the `/scripts` folder and can be executed by running the command:
 
 #### Replace 'xxx' with the desired script name (e.g., deposit, withdraw etc.)
@@ -201,6 +201,6 @@ docker-compose run contracts-env npx hardhat run scripts/xxx.js --network uzheth
 - `enable_tok_as_collateral.js`: This sets the deposited tokens as collateral for borrowing against them.
 - `borrow.js`: This script assumes you have already approved, deposited (`deposit.js`), and enabled your tokens as collateral (`enable_tok_as_collateral.js`) using the previous scripts.
 
-
+In addition to our implementation scripts, any method defined in `contracts/interfaces/ILendingPool.sol` can be used to interact with the lending pool. These methods provide comprehensive functionality for managing assets within the pool (e.g. flash loans etc.)
 
 

@@ -156,10 +156,8 @@ export const UzhethConfig: IAaveConfiguration = {
       xSUSHI: '0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272',
     },
     [eEthereumNetwork.uzheth]: {
-      TOK20: '0x171397e9963ba8e0aece162450d9ef58b854c540',
-    },
-    [eEthereumNetwork.uzheth]: {
       UZHETH: '0x6ae1ac2f223e49bff649d5d5aa4a13270c2a0a71',
+      TOK20: '0x171397e9963ba8e0aece162450d9ef58b854c540',
     },
   },
 };

@@ -1,123 +1,123 @@
 {
   "LendingPoolAddressesProviderRegistry": {
     "uzheth": {
-      "address": "0x47e294A376E02cef5F8691a1b993537A910eD4E3",
+      "address": "0x6e7b8135ab3D4c751C86c031c74750D5Ab873076",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "LendingPoolAddressesProvider": {
     "uzheth": {
-      "address": "0x4379764aa59eE2595E5833a794034cf673F45763",
+      "address": "0x51eb2C28105776552a1ed464f8246008152d7b9d",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "ReserveLogic": {
     "uzheth": {
-      "address": "0x0DD8e8f4220ea48aeBE4440147DDeA0fC81c63fC",
+      "address": "0x503cA113c8BEE14AF29d0a962FEb859CB1f44BA4",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "GenericLogic": {
     "uzheth": {
-      "address": "0x7A617Ff698735dFf52c7BfB4f9EA989A751B80C8",
+      "address": "0xdb83246158cca0DEC3D8d633E25aDF1fDfF40c27",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "ValidationLogic": {
     "uzheth": {
-      "address": "0xA56be471027175Bf3fD8fea6c07a985cd836bdDB",
+      "address": "0x83bDfd27141679Ef3289e3aE788b76BA1acc7ed0",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "LendingPoolImpl": {
     "uzheth": {
-      "address": "0x7b3052B069eC36872a1bea484d35f65AC62f35E4"
+      "address": "0xd97c39DEE29861D1436e6Faf48781775E80dc353"
     }
   },
   "LendingPool": {
     "uzheth": {
-      "address": "0x674EB85824915CF14Ad7824BbF18cCCA6c8E31e9"
+      "address": "0x428D9631C2602119C4068359Eb4dA37Cb346448f"
     }
   },
   "LendingPoolConfiguratorImpl": {
     "uzheth": {
-      "address": "0xafF5d09A0c14aaDf74165e61411851eF5b11805A"
+      "address": "0x46b9A9ded1dC1C3Fb8aB9D30e0844caE9c435233"
     }
   },
   "LendingPoolConfigurator": {
     "uzheth": {
-      "address": "0xF8Fc7A1859593666954C791bC0E30065942E5125"
+      "address": "0x8fD4256FAc31Ca8ddACBaC01184F424B3a3d3c23"
     }
   },
   "StableAndVariableTokensHelper": {
     "uzheth": {
-      "address": "0x8Ba7f9F5E9c9FB349bF81B8E8A8509b8B01052e5",
+      "address": "0x1f0F08BF93Ef17aD7E676DDb297498B08186bfaB",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "ATokensAndRatesHelper": {
     "uzheth": {
-      "address": "0x6dd6B315f922aB659f690a67A83BF2414f5BDe71",
+      "address": "0x884E3f62BF50c56A56B4E835d0DbEFEF1A196025",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "AToken": {
     "uzheth": {
-      "address": "0x9883e6b517b96413cf55e64E70baA3744064FA8f",
+      "address": "0x13769de0FeFe1B89b9dCf90ce7CbF45da0De2654",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "DelegationAwareAToken": {
     "uzheth": {
-      "address": "0xD8fc65aD4875b28A1fCcd1583cb1FEf818906F7C",
+      "address": "0x0507AF69Df8803102C6b3CBA5F21768cDFf78AcE",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "StableDebtToken": {
     "uzheth": {
-      "address": "0x534680d3d773DbD49f5e4620771803b432C941D5",
+      "address": "0x880Ea5853c8cD1CC4c4F74877FfA751B55591044",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "VariableDebtToken": {
     "uzheth": {
-      "address": "0x504FC9C63A51CE981d3906D717F9f1e524743492",
+      "address": "0x59eE2C7332aCac9997eBe919d05CEC069c1aD328",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "WETHMocked": {
     "uzheth": {
-      "address": "0x2422341c5Dc7378e3e853a5D65d79a8Dbaf70205",
+      "address": "0xf941614aBf1255955D3fE335Ae587018E9Ff467f",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "AaveOracle": {
     "uzheth": {
-      "address": "0x420ee4f5156d0d10dbAE740ebedcCdbc1D0f5DBE",
+      "address": "0x2bc202DA5d0C99Fe4Bf8dE4548c788b4842b1407",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "LendingRateOracle": {
     "uzheth": {
-      "address": "0x14ae07aDA04a56921A9831a6AA60ab35DBcBB025",
+      "address": "0x2653f91Eef42afFDFAEeC719922B503Db3D76c6D",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "AaveProtocolDataProvider": {
     "uzheth": {
-      "address": "0xE1f5707C5E81e70259099769467F80bC615967A1",
+      "address": "0xea98Dd53a8ED7e1d66A03fcF0e674aA69B26F856",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "WETHGateway": {
     "uzheth": {
-      "address": "0x6d7670012eF5C19814a6210f1e679C1a98580dEf",
+      "address": "0x3D7654C82bF0BB8254ad7Ec4dD49056504671bd5",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "DefaultReserveInterestRateStrategy": {
     "uzheth": {
-      "address": "0x0A34f755f8f3dcE34498Fd4628d319798793e83B",
+      "address": "0xBef27E1d979D9FD7f3FAffaA4e24285EaE949a69",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
@@ -128,36 +128,36 @@
   },
   "LendingPoolCollateralManagerImpl": {
     "uzheth": {
-      "address": "0x6a0657aF7F15C449d92c072494111Cb3E7E4Cc3b"
+      "address": "0x7Ce331fD450bd8e904d174c7cB3947de3706c628"
     }
   },
   "LendingPoolCollateralManager": {
     "uzheth": {
-      "address": "0x6a0657aF7F15C449d92c072494111Cb3E7E4Cc3b",
+      "address": "0x7Ce331fD450bd8e904d174c7cB3947de3706c628",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "WalletBalanceProvider": {
     "uzheth": {
-      "address": "0xCfbD69dCed03C05Ffd11a6F74aFfC3E8302bFfE4",
+      "address": "0x2cEb0b5D6A127DC433d44cdd1F91d2BA03fede1F",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "UiPoolDataProvider": {
     "uzheth": {
-      "address": "0x86D8794B0F894A837f43fDA764f6a5aBfD5FC078",
+      "address": "0x7995aDe82561815E0Cd921371DC8Bf5B1a773f77",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "UiIncentiveDataProviderV2V3": {
     "uzheth": {
-      "address": "0x77e066818CB8934f0E849ba3DCc5CE2cDA6DE789",
+      "address": "0xeDb81EC54c0a0829d991B1C289cA0E22b708EcC1",
       "deployer": "0xfdCd9aa1815582c04012b1D2F101FE8218849f09"
     }
   },
   "rateStrategyStableTwo": {
     "uzheth": {
-      "address": "0x0A34f755f8f3dcE34498Fd4628d319798793e83B"
+      "address": "0xBef27E1d979D9FD7f3FAffaA4e24285EaE949a69"
     }
   }
 }

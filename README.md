@@ -149,10 +149,10 @@ const contractGetters = require('./helpers/contracts-getters');
 const signer = await contractGetters.getFirstSigner();
 
 // Lending pool instance
-const lendingPool = await contractGetters.getLendingPool("xxx");
+const lendingPool = await contractGetters.getLendingPool("0xxxx");
 
 // ERC20 token instance
-const TOK = await contractGetters.getIErc20Detailed("0x171397e9963ba8e0aece162450d9ef58b854c540");
+const TOK = await contractGetters.getIErc20Detailed("0xxxx");
 
 // Approve 100 ERC20 token to LendingPool address
 await TOK.connect(signer).approve(lendingPool.address, ethers.utils.parseUnits('100', 18));
@@ -174,10 +174,10 @@ const contractGetters = require('./helpers/contracts-getters');
 const signer = await contractGetters.getFirstSigner();
 
 // Lending pool instance
-const lendingPool = await contractGetters.getLendingPool("0x0b93743a5A523faCB3ca3E92F027845F34e02feA");
+const lendingPool = await contractGetters.getLendingPool("0xxxx");
 
 // ERC20 token instance
-const TOK = await contractGetters.getIErc20Detailed("0x6ae1ac2f223e49bff649d5d5aa4a13270c2a0a71");
+const TOK = await contractGetters.getIErc20Detailed("0xxxx");
 
 // Set amount to withdraw from LendingPool
 await TOK.connect(signer).approve(lendingPool.address, ethers.utils.parseUnits('100', 18));
@@ -187,7 +187,13 @@ const tx2 = await lendingPool.connect(signer).withdraw(TOK.address, amountToWith
 await tx2.wait();
 ```
 
-## Interact with Aave in UZHETH via contracts
+## Interact with Aave in UZHETH via scripts
+Instead of using the Hardhat console, you can use our custom scripts for various use cases. These scripts are located in the `/scripts` folder:
+
+- `deposit.js`: This script allows you to deposit ERC-20 tokens into the lending pool and receive aTokens in return.
+- `withdraw.js`: This script enables you to withdraw ERC-20 tokens from the lending pool, burning the corresponding aTokens in the process.
+
+Each script is designed to streamline interactions with the lending pool, making it easier and more efficient to manage your assets.
 
 
 

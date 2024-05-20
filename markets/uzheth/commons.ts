@@ -341,10 +341,8 @@ export const CommonsConfig: ICommonConfiguration = {
     },
     [eEthereumNetwork.goerli]: {},
     [eEthereumNetwork.uzheth]: {
-      TOK20: '0x171397e9963ba8e0aece162450d9ef58b854c540',
-    },
-    [eEthereumNetwork.uzheth]: {
       UZHETH: '0x6ae1ac2f223e49bff649d5d5aa4a13270c2a0a71',
+      TOK20: '0x171397e9963ba8e0aece162450d9ef58b854c540',
     },
   },
   ReserveAssets: {
@@ -357,10 +355,8 @@ export const CommonsConfig: ICommonConfiguration = {
     [eEthereumNetwork.tenderly]: {},
     [eEthereumNetwork.goerli]: {},
     [eEthereumNetwork.uzheth]: {
-      TOK20: '0x171397e9963ba8e0aece162450d9ef58b854c540',
-    },
-    [eEthereumNetwork.uzheth]: {
       UZHETH: '0x6ae1ac2f223e49bff649d5d5aa4a13270c2a0a71',
+      TOK20: '0x171397e9963ba8e0aece162450d9ef58b854c540',
     },
   },
   ReservesConfig: {},

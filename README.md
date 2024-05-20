@@ -188,12 +188,19 @@ await tx2.wait();
 ```
 
 ## Interact with Aave in UZHETH via scripts
-Instead of using the Hardhat console, you can use our custom scripts for various use cases. These scripts are located in the `/scripts` folder:
+Instead of using the Hardhat console, you can use our custom scripts for various use cases. Each script is designed to streamline interactions with the lending pool, making it easier and more efficient to manage your assets.
+The scripts are located in the `/scripts` folder and can be executed by running the command:
+
+#### Replace 'xxx' with the desired script name (e.g., deposit, withdraw etc.)
+```bash
+docker-compose run contracts-env npx hardhat run scripts/xxx.js --network uzheth
+```
 
 - `deposit.js`: This script allows you to deposit ERC-20 tokens into the lending pool and receive aTokens in return.
 - `withdraw.js`: This script enables you to withdraw ERC-20 tokens from the lending pool, burning the corresponding aTokens in the process.
+- `enable_tok_as_collateral.js`: This sets the deposited tokens as collateral for borrowing against them.
+- `borrow.js`: This script assumes you have already approved, deposited (`deposit.js`), and enabled your tokens as collateral (`enable_tok_as_collateral.js`) using the previous scripts.
 
-Each script is designed to streamline interactions with the lending pool, making it easier and more efficient to manage your assets.
 
 
 

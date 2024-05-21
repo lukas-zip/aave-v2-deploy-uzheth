@@ -13,7 +13,7 @@ async function main() {
 
   // ERC20 token instance
   // Replace with your actual ERC20 token address
-  const TOK = await contractGetters.getIErc20Detailed("0x171397e9963ba8e0aece162450d9ef58b854c540");
+  const TOK = await contractGetters.getIErc20Detailed("0x6ae1ac2f223e49bff649d5d5aa4a13270c2a0a71");
 
   // Approve a specific amount of TOK for the Lending Pool
   // You can modify the amount as needed

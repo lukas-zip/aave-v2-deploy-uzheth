@@ -8,10 +8,12 @@ async function main() {
   const signer = await contractGetters.getFirstSigner();
 
   // Lending pool instance
+  // Replace with your actual lending pool address
   const lendingPool = await contractGetters.getLendingPool("0x428D9631C2602119C4068359Eb4dA37Cb346448f");
 
   // ERC20 token instance
-  const TOK = await contractGetters.getIErc20Detailed("0x171397e9963ba8e0Aece162450D9eF58B854C540");
+  // Replace with your actual token address
+  const TOK = await contractGetters.getIErc20Detailed("0x6ae1ac2f223e49bff649d5d5aa4a13270c2a0a71");
 
   // Approve a specific amount of TOK for the Lending Pool
   // You can modify the amount as needed

@@ -10,25 +10,31 @@ async function main() {
   console.log(`Signer address: ${signerAddress}`);
 
   // Lending pool instance
+  // Replace with your actual lending pool address
   const lendingPool = await contractGetters.getLendingPool("0x428D9631C2602119C4068359Eb4dA37Cb346448f");
 
   // ERC20 token instance for collateral
+  // Replace with your actual collateral token address
   const COLLATERAL_TOK = await contractGetters.getIErc20Detailed("0x6ae1ac2f223e49bff649d5d5aa4a13270c2a0a71");
   console.log(`Collateral Token address: ${COLLATERAL_TOK.address}`);
 
   // ERC20 token instance for the asset to borrow
+  // Replace with your actual token address
   const BORROW_TOK = await contractGetters.getIErc20Detailed("0x171397e9963ba8e0aece162450d9ef58b854c540");
   console.log(`Borrow Token address: ${BORROW_TOK.address}`);
 
   // Step 1: Approve the collateral token to be spent by the lending pool
+  // Replace with the amount you want to repay
+  // You can modify the amount as needed
   const approveTx = await COLLATERAL_TOK.connect(signer).approve(lendingPool.address, ethers.utils.parseUnits('100', 18));
   await approveTx.wait();
-  console.log(`Approved 100 COLLATERAL_TOK for LendingPool`);
+  console.log(`Approved COLLATERAL_TOK for LendingPool`);
 
   // Step 2: Deposit the collateral token into the lending pool
+  // You can modify the amount as needed
   const depositTx = await lendingPool.connect(signer).deposit(COLLATERAL_TOK.address, ethers.utils.parseUnits('100', 18), signerAddress, 0);
   await depositTx.wait();
-  console.log(`Deposited 100 COLLATERAL_TOK to LendingPool`);
+  console.log(`Deposited COLLATERAL_TOK to LendingPool`);
 
   // Step 3: Enable the collateral token as collateral
   const enableCollateralTx = await lendingPool.connect(signer).setUserUseReserveAsCollateral(COLLATERAL_TOK.address, true);
@@ -49,6 +55,7 @@ async function main() {
   }
 
   // Step 5: Borrow the asset
+  // You can modify the amount as needed
   const amountToBorrow = ethers.utils.parseUnits('50', 18); // Amount to borrow
   const interestRateMode = 2; // Variable interest rate mode
 

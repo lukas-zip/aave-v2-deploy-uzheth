@@ -16,13 +16,13 @@ async function main() {
   // Approve a specific amount of TOK for the Lending Pool
   // You can modify the amount as needed
   await TOK.connect(signer).approve(lendingPool.address, ethers.utils.parseUnits('100', 18));
-  console.log(`Approved 100 TOK for LendingPool`);
+  console.log(`Approved TOK for LendingPool`);
 
-  // Withdraw 100 ERC20 tokens from the Lending Pool
+  // Withdraw ERC20 tokens from the Lending Pool
   // The amount must match the approved amount above
   const tx = await lendingPool.connect(signer).withdraw(TOK.address, ethers.utils.parseUnits('100', 18), await signer.getAddress(), { gasLimit: 500000 });
   console.log(await tx.wait());
-  console.log(`Withdrew 100 TOK from LendingPool`);
+  console.log(`Withdrew TOK from LendingPool`);
 }
 
 main().catch((error) => {

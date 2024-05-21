@@ -13,18 +13,18 @@ async function main() {
 
   // ERC20 token instance
   // Replace with your actual ERC20 token address
-  const TOK = await contractGetters.getIErc20Detailed("0x171397e9963ba8e0Aece162450D9eF58B854C540");
+  const TOK = await contractGetters.getIErc20Detailed("0x171397e9963ba8e0aece162450d9ef58b854c540");
 
   // Approve a specific amount of TOK for the Lending Pool
   // You can modify the amount as needed
   await TOK.connect(signer).approve(lendingPool.address, ethers.utils.parseUnits('100', 18));
-  console.log(`Approved 100 TOK for LendingPool`);
+  console.log(`Approved TOK for LendingPool`);
 
-  // Withdraw 100 ERC20 tokens from the Lending Pool
+  // Withdraw ERC20 tokens from the Lending Pool
   // The amount must match the approved amount above
   const tx = await lendingPool.connect(signer).deposit(TOK.address, ethers.utils.parseUnits('100', 18), await signer.getAddress(), '0', { gasLimit: 500000 });
   console.log(await tx.wait());
-  console.log(`Deposited 100 TOK to LendingPool`);
+  console.log(`Deposited TOK to LendingPool`);
 }
 
 main().catch((error) => {

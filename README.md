@@ -200,7 +200,8 @@ docker-compose run contracts-env npx hardhat run scripts/xxx.js --network uzheth
 - `withdraw.js`: This script enables you to withdraw ERC-20 tokens from the lending pool, burning the corresponding aTokens in the process.
 - `enable_tok_as_collateral.js`: This sets the deposited tokens as collateral for borrowing against them.
 - `borrow.js`: This script assumes you have already approved, deposited (`deposit.js`), and enabled your tokens as collateral (`enable_tok_as_collateral.js`) using the previous scripts.
+- `deposit_and_borrow.js`: This script deposits collateral into a lending pool, enables it as collateral, checks available liquidity, and then borrows tokens if sufficient liquidity is available.
 
-In addition to our implementation scripts, any method defined in `contracts/interfaces/ILendingPool.sol` can be used to interact with the lending pool. These methods provide comprehensive functionality for managing assets within the pool (e.g. flash loans etc.)
+In addition to our implementation scripts, any method and function defined in `contracts/interfaces/ILendingPool.sol` can be used to interact with the lending pool and create use cases. These functions provide comprehensive functionality for managing assets within the pool (e.g. flash loans etc.)
 
 

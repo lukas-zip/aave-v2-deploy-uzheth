@@ -254,7 +254,7 @@ await tx2.wait();
 Instead of using the Hardhat console, you can use our custom scripts for various use cases. Each script is designed to streamline interactions with the lending pool, making it easier and more efficient to manage assets.
 The scripts are located in the `./scripts` folder and can be executed by running the command:
 
-### Replace 'xxx' with the desired script name (e.g., deposit, withdraw etc.)
+#### Replace 'xxx' with the desired script name (e.g., deposit, withdraw etc.)
 ```bash
 docker-compose run contracts-env npx hardhat run scripts/xxx.js --network uzheth
 ```

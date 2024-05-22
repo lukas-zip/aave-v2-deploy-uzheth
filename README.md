@@ -29,7 +29,7 @@ The official documentation of Aave V2 is in the following [Aave V2 documentation
 A more detailed and technical description of the protocol can be found in this repository, [here](./aave-v2-whitepaper.pdf)
 
 
-## How to deploy Aave V2 in UZHETH network
+# How to deploy Aave V2 in UZHETH network
 This README provides a detailed explanation of the `uzheth:mainnet` deployment script for the UZHETH project. This repository is designed to deploy a development environment for the UZHETH protocol using Hardhat.
 
 ### Deployment Setup

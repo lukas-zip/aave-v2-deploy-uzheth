@@ -188,7 +188,7 @@ contract UZHETH is ERC20, Ownable {
 } }
 ```
 
-## Interact with Aave in UZHETH via console
+# Interact with Aave in UZHETH via console
 
 You can interact with Aave using the Hardhat console.
 
@@ -200,7 +200,7 @@ docker-compose run contracts-env npx hardhat --network uzheth console
 
 At the Hardhat console, you can interact with the protocol using the following two example use cases:
 
-### Deposit ERC20 tokens on AAVE (get ATokens back)
+## Deposit ERC20 tokens on AAVE (get ATokens back)
 ```
 // Load the HRE into helpers to access signers
 run("set-DRE")
@@ -225,7 +225,7 @@ const tx = await lendingPool.connect(signer).deposit(TOK.address, ethers.utils.p
 await tx.wait();
 ```
 
-### Withdraw ERC20 tokens from AAVE (burn ATokens)
+## Withdraw ERC20 tokens from AAVE (burn ATokens)
 ```
 // Load the HRE into helpers to access signers
 run("set-DRE")
@@ -250,11 +250,11 @@ const tx2 = await lendingPool.connect(signer).withdraw(TOK.address, amountToWith
 await tx2.wait();
 ```
 
-## Interact with Aave in UZHETH via scripts
+# Interact with Aave in UZHETH via scripts
 Instead of using the Hardhat console, you can use our custom scripts for various use cases. Each script is designed to streamline interactions with the lending pool, making it easier and more efficient to manage assets.
 The scripts are located in the `./scripts` folder and can be executed by running the command:
 
-#### Replace 'xxx' with the desired script name (e.g., deposit, withdraw etc.)
+### Replace 'xxx' with the desired script name (e.g., deposit, withdraw etc.)
 ```bash
 docker-compose run contracts-env npx hardhat run scripts/xxx.js --network uzheth
 ```

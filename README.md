@@ -32,7 +32,7 @@ A more detailed and technical description of the protocol can be found in this r
 # How to deploy Aave V2 in UZHETH network
 This README provides a detailed explanation of the `uzheth:mainnet` deployment script for the UZHETH project. This repository is designed to deploy a development environment for the UZHETH protocol using Hardhat.
 
-### Deployment Setup
+## Deployment Setup
 
 The repository uses Docker Compose to manage sensitive keys and load the configuration. Prior any action like test or deploy, you must run `docker-compose up` to start the `contracts-env` container, and then connect to the container console via `docker-compose exec contracts-env bash`.
 
@@ -70,7 +70,7 @@ docker-compose up
 docker-compose exec contracts-env bash
 ```
 
-### Deployment to UZHETH
+## Deployment to UZHETH
 
 For deploying Aave Protocol V2, you can use the available scripts located at `package.json`. For a complete list, run `npm run` to see all the tasks.
 
@@ -87,7 +87,7 @@ npm run uzheth:full:migration
 
 A comprehensive list of all deployed contracts is available in the `deployed-contracts.json` file, located in the root directory.
 
-### Test
+## Test
 
 You can run the full test suite with the following commands:
 
